@@ -164,7 +164,7 @@
 }
 
 - (NSMutableDictionary *)query {
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
   [dictionary setObject:[self objectForItemType:self.type] forKey:(__bridge id)kSecClass];
 
 	if (self.service) {

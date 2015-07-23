@@ -44,7 +44,7 @@ typedef NS_ENUM (NSUInteger, GHKeychainItemType) {
 @property NSString *service; // kSecAttrService
 @property NSString *label; // kSecAttrLabel
 
-@property GHKeychainItemType type;
+@property GHKeychainItemType type; // kSecClass
 
 #ifdef GHKEYCHAIN_ACCESS_GROUP_AVAILABLE
 @property NSString *accessGroup; // kSecAttrAccessGroup
