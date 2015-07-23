@@ -1,12 +1,12 @@
 # GHKeychain
 
-GHKeychain is a simple wrapper for accessing accounts, getting passwords, setting passwords, and deleting passwords using the system Keychain on Mac OS X and iOS.
+GHKeychain is a framework for accessing accounts, getting, setting, and deleting items in the system Keychain on Mac OS X and iOS.
 
 This is a fork of SSKeychain.
 
 ## Adding to Your Project
 
-Simply add the following to your Podfile if you're using CocoaPods:
+Add the following to your Podfile if you're using CocoaPods:
 
 ``` ruby
 pod 'GHKeychain'
