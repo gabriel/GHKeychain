@@ -155,6 +155,7 @@
 - (id)objectForItemType:(GHKeychainItemType)itemType {
   switch (itemType) {
     case GHKeychainItemTypeGenericPassword: return kSecClassGenericPassword;
+    case GHKeychainItemTypeInternetPassword: return kSecClassInternetPassword;
     case GHKeychainItemTypeCertificate: return kSecClassCertificate;
     case GHKeychainItemTypeKey: return kSecClassKey;
     case GHKeychainItemTypeIdentity: return kSecClassIdentity;
