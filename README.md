@@ -30,6 +30,16 @@ GHKeychain has the following class methods for working with the system keychain:
 + (BOOL)setData:(NSData *)data forService:(NSString *)serviceName account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error;
 ```
 
+Types:
+
+```objc
+GHKeychainItemTypeGenericPassword, // kSecClassGenericPassword
+GHKeychainItemTypeInternetPassword, // kSecClassInternetPassword
+GHKeychainItemTypeCertificate, // kSecClassCertificate
+GHKeychainItemTypeKey, // kSecClassKey
+GHKeychainItemTypeIdentity, //kSecClassIdentity
+```
+
 If you are storing a text password, you can convert:
 
 ```objc
