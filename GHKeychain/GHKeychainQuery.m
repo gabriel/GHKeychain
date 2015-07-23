@@ -36,7 +36,7 @@
 		query = [[NSMutableDictionary alloc]init];
 		[query setObject:self.data forKey:(__bridge id)kSecValueData];
 		status = SecItemUpdate((__bridge CFDictionaryRef)(searchQuery), (__bridge CFDictionaryRef)(query));
-	}else if(status == errSecItemNotFound) {//item not found, create it!
+	} else if(status == errSecItemNotFound) {//item not found, create it!
 		query = [self query];
 		if (self.label) {
 			[query setObject:self.label forKey:(__bridge id)kSecAttrLabel];
@@ -152,9 +152,18 @@
 
 #pragma mark - Private
 
+- (id)objectForItemType:(GHKeychainItemType)itemType {
+  switch (itemType) {
+    case GHKeychainItemTypeGenericPassword: return kSecClassGenericPassword;
+    case GHKeychainItemTypeCertificate: return kSecClassCertificate;
+    case GHKeychainItemTypeKey: return kSecClassKey;
+    case GHKeychainItemTypeIdentity: return kSecClassIdentity;
+  }
+}
+
 - (NSMutableDictionary *)query {
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
-	[dictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
+  [dictionary setObject:[self objectForItemType:self.type] forKey:(__bridge id)kSecClass];
 
 	if (self.service) {
 		[dictionary setObject:self.service forKey:(__bridge id)kSecAttrService];

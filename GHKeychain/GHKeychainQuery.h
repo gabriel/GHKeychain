@@ -20,39 +20,41 @@
 #endif
 
 #ifdef GHKEYCHAIN_SYNCHRONIZATION_AVAILABLE
-typedef NS_ENUM(NSUInteger, GHKeychainQuerySynchronizationMode) {
+typedef NS_ENUM (NSUInteger, GHKeychainQuerySynchronizationMode) {
 	GHKeychainQuerySynchronizationModeAny,
 	GHKeychainQuerySynchronizationModeNo,
 	GHKeychainQuerySynchronizationModeYes
 };
 #endif
 
+typedef NS_ENUM (NSUInteger, GHKeychainItemType) {
+  GHKeychainItemTypeGenericPassword, // kSecClassGenericPassword
+  GHKeychainItemTypeInternetPassword, // kSecClassInternetPassword
+  GHKeychainItemTypeCertificate, // kSecClassCertificate
+  GHKeychainItemTypeKey, // kSecClassKey
+  GHKeychainItemTypeIdentity, //kSecClassIdentity
+};
+
 /**
- Simple interface for querying or modifying keychain items.
+ Interface for querying or modifying keychain items.
  */
 @interface GHKeychainQuery : NSObject
 
-/** kSecAttrAccount */
-@property (nonatomic, copy) NSString *account;
+@property NSString *account; // kSecAttrAccount
+@property NSString *service; // kSecAttrService
+@property NSString *label; // kSecAttrLabel
 
-/** kSecAttrService */
-@property (nonatomic, copy) NSString *service;
-
-/** kSecAttrLabel */
-@property (nonatomic, copy) NSString *label;
+@property GHKeychainItemType type;
 
 #ifdef GHKEYCHAIN_ACCESS_GROUP_AVAILABLE
-/** kSecAttrAccessGroup (only used on iOS) */
-@property (nonatomic, copy) NSString *accessGroup;
+@property NSString *accessGroup; // kSecAttrAccessGroup
 #endif
 
 #ifdef GHKEYCHAIN_SYNCHRONIZATION_AVAILABLE
-/** kSecAttrSynchronizable */
-@property (nonatomic) GHKeychainQuerySynchronizationMode synchronizationMode;
+@property (nonatomic) GHKeychainQuerySynchronizationMode synchronizationMode; // kSecAttrSynchronizable
 #endif
 
-/** Root storage for password information */
-@property (nonatomic, copy) NSData *data;
+@property (nonatomic, copy) NSData *data; // kSecValueData
 
 ///------------------------
 /// @name Saving & Deleting

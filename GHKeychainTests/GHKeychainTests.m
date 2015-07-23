@@ -139,10 +139,10 @@ static NSString *const kGHKeychainLabel = @"MyLabel";
 	NSError *error = nil;
 	
 	// create a new keychain item
-	XCTAssertTrue([GHKeychain setData:[kGHKeychainPassword dataUsingEncoding:NSUTF8StringEncoding] forService:kGHKeychainServiceName account:kGHKeychainAccountName error:&error], @"Unable to save item: %@", error);
+  XCTAssertTrue([GHKeychain setData:[kGHKeychainPassword dataUsingEncoding:NSUTF8StringEncoding] forService:kGHKeychainServiceName account:kGHKeychainAccountName type:GHKeychainItemTypeGenericPassword error:&error], @"Unable to save item: %@", error);
 	
 	// check password
-  XCTAssertEqualObjects([GHKeychain dataForService:kGHKeychainServiceName account:kGHKeychainAccountName error:nil], [kGHKeychainPassword dataUsingEncoding:NSUTF8StringEncoding], @"Passwords were not equal");
+  XCTAssertEqualObjects([GHKeychain dataForService:kGHKeychainServiceName account:kGHKeychainAccountName type:GHKeychainItemTypeGenericPassword error:nil], [kGHKeychainPassword dataUsingEncoding:NSUTF8StringEncoding], @"Passwords were not equal");
 	
 	// check all accounts
   XCTAssertTrue([self _accounts:[GHKeychain allAccounts:nil] containsAccountWithName:kGHKeychainAccountName], @"Matching account was not returned");
@@ -150,7 +150,7 @@ static NSString *const kGHKeychainLabel = @"MyLabel";
   XCTAssertTrue([self _accounts:[GHKeychain accountsForService:kGHKeychainServiceName error:nil] containsAccountWithName:kGHKeychainAccountName], @"Matching account was not returned");
 	
 	// delete password
-	XCTAssertTrue([GHKeychain deleteForService:kGHKeychainServiceName account:kGHKeychainAccountName error:&error], @"Unable to delete password: %@", error);
+	XCTAssertTrue([GHKeychain deleteForService:kGHKeychainServiceName account:kGHKeychainAccountName type:GHKeychainItemTypeGenericPassword error:&error], @"Unable to delete password: %@", error);
 	
 	// set password and delete it without error function
 #if __IPHONE_4_0 && TARGET_OS_IPHONE

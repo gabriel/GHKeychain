@@ -1,11 +1,11 @@
 Pod::Spec.new do |spec|
   spec.name         = 'GHKeychain'
-  spec.version      = '1.2.3'
-  spec.summary      = 'Simple Cocoa wrapper for the keychain that works on Mac and iOS.'
+  spec.version      = '1.2.4'
+  spec.summary      = 'Keychain library for Mac and iOS.'
   spec.homepage     = 'https://github.com/soffes/sskeychain'
   spec.author       = { 'Gabriel Handford' => 'gabrielh@gmail.com' }
   spec.source       = { :git => 'https://github.com/gabriel/GHKeychain.git', :tag => spec.version }
-  spec.description  = 'GHKeychain is a simple utility class for making the system keychain less sucky.'
+  spec.description  = 'Keychain library for Mac and iOS.'
   spec.source_files = 'GHKeychain/*.{h,m}'
   spec.requires_arc = true
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }

@@ -23,26 +23,29 @@ static CFTypeRef GHKeychainAccessibilityType = NULL;
 
 @implementation GHKeychain
 
-+ (NSData *)dataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
++ (NSData *)dataForService:(NSString *)serviceName account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error {
   GHKeychainQuery *query = [[GHKeychainQuery alloc] init];
   query.service = serviceName;
   query.account = account;
+  query.type = type;
   [query fetch:error];
   return query.data;
 }
 
-+ (BOOL)deleteForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
++ (BOOL)deleteForService:(NSString *)serviceName account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error {
   GHKeychainQuery *query = [[GHKeychainQuery alloc] init];
   query.service = serviceName;
   query.account = account;
+  query.type = type;
   return [query deleteItem:error];
 }
 
-+ (BOOL)setData:(NSData *)data forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
++ (BOOL)setData:(NSData *)data forService:(NSString *)serviceName account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error {
   GHKeychainQuery *query = [[GHKeychainQuery alloc] init];
   query.service = serviceName;
   query.account = account;
   query.data = data;
+  query.type = type;
   return [query save:error];
 }
 
@@ -57,12 +60,10 @@ static CFTypeRef GHKeychainAccessibilityType = NULL;
   return [query fetchAll:error];
 }
 
-
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
 + (CFTypeRef)accessibilityType {
   return GHKeychainAccessibilityType;
 }
-
 
 + (void)setAccessibilityType:(CFTypeRef)accessibilityType {
   CFRetain(accessibilityType);
