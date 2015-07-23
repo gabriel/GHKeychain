@@ -154,11 +154,11 @@
 
 - (id)objectForItemType:(GHKeychainItemType)itemType {
   switch (itemType) {
-    case GHKeychainItemTypeGenericPassword: return kSecClassGenericPassword;
-    case GHKeychainItemTypeInternetPassword: return kSecClassInternetPassword;
-    case GHKeychainItemTypeCertificate: return kSecClassCertificate;
-    case GHKeychainItemTypeKey: return kSecClassKey;
-    case GHKeychainItemTypeIdentity: return kSecClassIdentity;
+    case GHKeychainItemTypeGenericPassword: return (__bridge id)kSecClassGenericPassword;
+    case GHKeychainItemTypeInternetPassword: return (__bridge id)kSecClassInternetPassword;
+    case GHKeychainItemTypeCertificate: return (__bridge id)kSecClassCertificate;
+    case GHKeychainItemTypeKey: return (__bridge id)kSecClassKey;
+    case GHKeychainItemTypeIdentity: return (__bridge id)kSecClassIdentity;
   }
 }
 
