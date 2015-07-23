@@ -139,7 +139,7 @@ static NSString *const kGHKeychainLabel = @"MyLabel";
 	NSError *error = nil;
 	
 	// create a new keychain item
-  XCTAssertTrue([GHKeychain setData:[kGHKeychainPassword dataUsingEncoding:NSUTF8StringEncoding] forService:kGHKeychainServiceName account:kGHKeychainAccountName type:GHKeychainItemTypeGenericPassword error:&error], @"Unable to save item: %@", error);
+  XCTAssertTrue([GHKeychain setData:[kGHKeychainPassword dataUsingEncoding:NSUTF8StringEncoding] service:kGHKeychainServiceName account:kGHKeychainAccountName type:GHKeychainItemTypeGenericPassword error:&error], @"Unable to save item: %@", error);
 	
 	// check password
   XCTAssertEqualObjects([GHKeychain dataForService:kGHKeychainServiceName account:kGHKeychainAccountName type:GHKeychainItemTypeGenericPassword error:nil], [kGHKeychainPassword dataUsingEncoding:NSUTF8StringEncoding], @"Passwords were not equal");
