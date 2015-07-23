@@ -23,7 +23,7 @@ github "gabriel/GHKeychain"
 GHKeychain has the following class methods for working with the system keychain:
 
 ```objc
-+ (NSArray *)allAccounts;
++ (NSArray *)allAccounts:(NSError **)error;
 + (NSArray *)accountsForService:(NSString *)serviceName type:(GHKeychainItemType)type error:(NSError **)error;
 + (NSString *)dataForService:(NSString *)serviceName account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error;
 + (BOOL)deleteForService:(NSString *)serviceName account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error;
