@@ -67,7 +67,7 @@ extern NSString *const kGHKeychainWhereKey;
 
  @return Returns data for a given account and service, or `nil` if the Keychain doesn't have data for the given parameters.
  */
-+ (NSData *)dataForService:(NSString *)service account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error;
++ (NSData *)dataForService:(NSString *)service account:(NSString *)account error:(NSError **)error;
 
 
 /**
@@ -79,7 +79,7 @@ extern NSString *const kGHKeychainWhereKey;
 
  @return Returns `YES` on success, or `NO` on failure.
  */
-+ (BOOL)deleteForService:(NSString *)service account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error;
++ (BOOL)deleteForService:(NSString *)service account:(NSString *)account error:(NSError **)error;
 
 
 /**
@@ -93,7 +93,7 @@ extern NSString *const kGHKeychainWhereKey;
 
  @return Returns `YES` on success, or `NO` on failure.
  */
-+ (BOOL)setData:(NSData *)password service:(NSString *)service account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error;
++ (BOOL)setData:(NSData *)password service:(NSString *)service account:(NSString *)account error:(NSError **)error;
 
 /**
  Returns an array containing the Keychain's accounts, or `nil` if the Keychain has no accounts.

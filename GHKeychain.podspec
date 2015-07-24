@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "GHKeychain"
-  spec.version      = "1.2.7"
+  spec.version      = "1.2.8"
   spec.summary      = "Keychain library for Mac and iOS."
   spec.homepage     = "https://github.com/soffes/sskeychain"
   spec.author       = { "Gabriel Handford" => "gabrielh@gmail.com" }

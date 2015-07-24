@@ -23,29 +23,26 @@ static CFTypeRef GHKeychainAccessibilityType = NULL;
 
 @implementation GHKeychain
 
-+ (NSData *)dataForService:(NSString *)service account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error {
++ (NSData *)dataForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
   GHKeychainQuery *query = [[GHKeychainQuery alloc] init];
   query.service = service;
   query.account = account;
-  query.type = type;
   [query fetch:error];
   return query.data;
 }
 
-+ (BOOL)deleteForService:(NSString *)service account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error {
++ (BOOL)deleteForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
   GHKeychainQuery *query = [[GHKeychainQuery alloc] init];
   query.service = service;
   query.account = account;
-  query.type = type;
   return [query deleteItem:error];
 }
 
-+ (BOOL)setData:(NSData *)data service:(NSString *)service account:(NSString *)account type:(GHKeychainItemType)type error:(NSError **)error {
++ (BOOL)setData:(NSData *)data service:(NSString *)service account:(NSString *)account error:(NSError **)error {
   GHKeychainQuery *query = [[GHKeychainQuery alloc] init];
   query.service = service;
   query.account = account;
   query.data = data;
-  query.type = type;
   return [query save:error];
 }
 

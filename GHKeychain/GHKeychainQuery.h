@@ -27,6 +27,7 @@ typedef NS_ENUM (NSUInteger, GHKeychainQuerySynchronizationMode) {
 };
 #endif
 
+/*
 typedef NS_ENUM (NSUInteger, GHKeychainItemType) {
   GHKeychainItemTypeGenericPassword, // kSecClassGenericPassword
   GHKeychainItemTypeInternetPassword, // kSecClassInternetPassword
@@ -34,6 +35,7 @@ typedef NS_ENUM (NSUInteger, GHKeychainItemType) {
   GHKeychainItemTypeKey, // kSecClassKey
   GHKeychainItemTypeIdentity, //kSecClassIdentity
 };
+ */
 
 /**
  Interface for querying or modifying keychain items.
@@ -44,7 +46,7 @@ typedef NS_ENUM (NSUInteger, GHKeychainItemType) {
 @property NSString *service; // kSecAttrService
 @property NSString *label; // kSecAttrLabel
 
-@property GHKeychainItemType type; // kSecClass
+//@property GHKeychainItemType type; // kSecClass
 
 #ifdef GHKEYCHAIN_ACCESS_GROUP_AVAILABLE
 @property NSString *accessGroup; // kSecAttrAccessGroup

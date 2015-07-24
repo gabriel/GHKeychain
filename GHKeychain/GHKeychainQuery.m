@@ -153,6 +153,7 @@
 
 #pragma mark - Private
 
+/*
 - (id)objectForItemType:(GHKeychainItemType)itemType {
   switch (itemType) {
     case GHKeychainItemTypeGenericPassword: return (__bridge id)kSecClassGenericPassword;
@@ -162,10 +163,11 @@
     case GHKeychainItemTypeIdentity: return (__bridge id)kSecClassIdentity;
   }
 }
+ */
 
 - (NSMutableDictionary *)query {
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-  [dictionary setObject:[self objectForItemType:self.type] forKey:(__bridge id)kSecClass];
+  [dictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
 
 	if (self.service) {
 		[dictionary setObject:self.service forKey:(__bridge id)kSecAttrService];
